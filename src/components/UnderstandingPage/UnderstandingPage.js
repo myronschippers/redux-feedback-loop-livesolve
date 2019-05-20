@@ -5,6 +5,10 @@ import Review from '../Review/Review';
 
 class UnderstandingPage extends Component {
     clickNext = (event) => {
+        this.props.dispatch({
+            type: 'FEEDBACK_UNDERSTANDING',
+            payload: this.state.understanding,
+        });
         this.props.history.push('/support');
     }
 
