@@ -3,6 +3,10 @@ import { connect } from 'react-redux';
 import mapReduxStateToProps from '../../redux/mapReduxStateToProps';
 
 class ConfirmationPage extends Component {
+    clickNewFeedback = (event) => {
+        this.props.history.push('/');
+    }
+
     render() {
         return (
             <div>
@@ -10,6 +14,7 @@ class ConfirmationPage extends Component {
 
                 <div>
                     CONTENT
+                    <button onClick={this.clickNewFeedback}>Leave New Feedback</button>
                 </div>
             </div>
         );

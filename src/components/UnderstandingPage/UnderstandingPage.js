@@ -3,6 +3,10 @@ import { connect } from 'react-redux';
 import mapReduxStateToProps from '../../redux/mapReduxStateToProps';
 
 class UnderstandingPage extends Component {
+    clickNext = (event) => {
+        this.props.history.push('/support');
+    }
+
     render() {
         return (
             <div>
@@ -10,6 +14,7 @@ class UnderstandingPage extends Component {
 
                 <div>
                     CONTENT
+                    <button onClick={this.clickNext}>NEXT</button>
                 </div>
             </div>
         );
