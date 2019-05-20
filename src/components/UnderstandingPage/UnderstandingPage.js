@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import mapReduxStateToProps from '../../redux/mapReduxStateToProps';
+import Review from '../Review/Review';
 
 class UnderstandingPage extends Component {
     clickNext = (event) => {
@@ -15,6 +16,9 @@ class UnderstandingPage extends Component {
                 <div>
                     CONTENT
                     <button onClick={this.clickNext}>NEXT</button>
+                </div>
+                <div>
+                    <Review />
                 </div>
             </div>
         );

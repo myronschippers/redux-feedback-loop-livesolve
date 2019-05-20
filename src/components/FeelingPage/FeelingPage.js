@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import mapReduxStateToProps from '../../redux/mapReduxStateToProps';
+import Review from '../Review/Review';
 
 class FeelingPage extends Component {
     constructor(props) {
@@ -37,6 +38,9 @@ class FeelingPage extends Component {
                         onChange={this.changeField}
                     />
                     <button onClick={this.clickNext}>NEXT</button>
+                </div>
+                <div>
+                    <Review />
                 </div>
             </div>
         );
