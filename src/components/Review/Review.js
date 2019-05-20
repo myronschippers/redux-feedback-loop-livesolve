@@ -1,10 +1,27 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import mapReduxStateToProps from '../../redux/mapReduxStateToProps';
+import axios from 'axios';
+import { withRouter } from 'react-router-dom';
 
 class Review extends Component {
     submitFeedback = (event) => {
-        console.log('Feedback has been submitted');
+        const severData = {
+            feeling: this.props.reduxState.feeling,
+            understanding: this.props.reduxState.understanding,
+            support: this.props.reduxState.support,
+            comments: this.props.reduxState.comments,
+        };
+        axios.post('/feedback', severData)
+            .then((response) => {
+                this.props.dispatch({
+                    type: 'FEEDBACK_CLEAR',
+                })
+                this.props.history.push('/confirmation');
+            })
+            .catch((err) => {
+                console.log(err);
+            });
     }
 
     render() {
@@ -40,4 +57,4 @@ class Review extends Component {
     }
 }
 
-export default connect(mapReduxStateToProps)(Review);
+export default withRouter(connect(mapReduxStateToProps)(Review));
