@@ -1,13 +1,10 @@
 import { createStore, combineReducers, applyMiddleware } from 'redux';
 import logger from 'redux-logger';
-
-const feedbackReducer = (state = {}, action) => {
-    return state;
-};
+import * as allReducers from './reducers/all.reducers';
 
 const storeInstance = createStore(
     combineReducers({
-        feedbackReducer,
+        ...allReducers,
     }),
     applyMiddleware(logger)
 );

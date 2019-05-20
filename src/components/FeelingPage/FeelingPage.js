@@ -3,8 +3,26 @@ import { connect } from 'react-redux';
 import mapReduxStateToProps from '../../redux/mapReduxStateToProps';
 
 class FeelingPage extends Component {
+    constructor(props) {
+        super(props);
+
+        this.state = {
+            feeling: '',
+        }
+    }
+
     clickNext = (event) => {
+        this.props.dispatch({
+            type: 'FEEDBACK_FEELING',
+            payload: this.state.feeling,
+        })
         this.props.history.push('/understanding');
+    }
+
+    changeField = (event) => {
+        this.setState({
+            feeling: event.target.value,
+        });
     }
 
     render() {
@@ -13,7 +31,11 @@ class FeelingPage extends Component {
                 <h2>How are you feeling today?</h2>
 
                 <div>
-                    CONTENT
+                    <input
+                        type="number"
+                        placeholder="Feeling"
+                        onChange={this.changeField}
+                    />
                     <button onClick={this.clickNext}>NEXT</button>
                 </div>
             </div>
