@@ -1,4 +1,9 @@
 import React, { Component } from 'react';
+import { HashRouter as Router, Route } from 'react-router-dom';
+
+// Page Components
+import HomePage from '../HomePage/HomePage';
+// CSS
 import './App.css';
 
 class App extends Component {
@@ -10,6 +15,10 @@ class App extends Component {
           <h4><i>Don't forget it!</i></h4>
         </header>
         <br/>
+
+        <Router>
+          <Route exact path="/" component={HomePage} />
+        </Router>
       </div>
     );
   }
