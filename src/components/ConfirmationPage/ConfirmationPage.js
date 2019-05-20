@@ -13,7 +13,6 @@ class ConfirmationPage extends Component {
                 <h2>Thank You!</h2>
 
                 <div>
-                    PAGE CONTENT
                     <button onClick={this.clickNewFeedback}>Leave New Feedback</button>
                 </div>
             </div>

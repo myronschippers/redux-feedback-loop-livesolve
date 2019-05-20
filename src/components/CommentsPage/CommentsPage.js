@@ -9,7 +9,7 @@ class CommentsPage extends Component {
             type: 'FEEDBACK_COMMENTS',
             payload: this.state.comments,
         });
-        this.props.history.push('/confirmation');
+        // this.props.history.push('/confirmation');
     }
 
     changeComments = (event) => {
