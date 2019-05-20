@@ -1,9 +1,21 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import mapReduxStateToProps from '../../redux/mapReduxStateToProps';
+import Axios from 'axios';
+import { withRouter } from 'react-router-dom';
 
 class Review extends Component {
     clickSubmitFeedback = (event) => {
+        const serverData = {
+            feeling: this.props.reduxState.feeling,
+            understanding: this.props.reduxState.understanding,
+            support: this.props.reduxState.support,
+            comments: this.props.reduxState.comments,
+        };
+        Axios.post('/feedback', serverData)
+            .then((response) => {
+                this.props.history.push('/confirmation');
+            });
         console.log('You submitted');
     }
 
@@ -34,4 +46,4 @@ class Review extends Component {
     }
 }
 
-export default connect(mapReduxStateToProps)(Review);
+export default withRouter(connect(mapReduxStateToProps)(Review));
