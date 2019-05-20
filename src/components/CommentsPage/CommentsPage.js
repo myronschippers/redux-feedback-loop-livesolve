@@ -5,7 +5,17 @@ import Review from '../Review/Review';
 
 class CommentsPage extends Component {
     clickNext = (event) => {
-        this.props.history.push('/confirmation');
+        this.props.dispatch({
+            type: 'FEEDBACK_COMMENTS',
+            payload: this.state.comments,
+        })
+        // this.props.history.push('/confirmation');
+    }
+
+    changeField = (event) => {
+        this.setState({
+            comments: event.target.value,
+        });
     }
 
     render() {
@@ -14,7 +24,11 @@ class CommentsPage extends Component {
                 <h2>Any comments you want to leave?</h2>
 
                 <div>
-                    CONTENT
+                    <input
+                        type="text"
+                        placeholder="Comments"
+                        onChange={this.changeField}
+                    />
                     <button onClick={this.clickNext}>NEXT</button>
                 </div>
                 <div>

@@ -8,6 +8,17 @@ class Review extends Component {
     }
 
     render() {
+        let isSubmitDisabled = true;
+        let submitText = 'Incomplete';
+        if (this.props.reduxState.feeling
+            && this.props.reduxState.understanding
+            && this.props.reduxState.support
+            && this.props.reduxState.comments
+        ) {
+            isSubmitDisabled = false;
+            submitText = 'SUBMIT';
+        }
+    
         return (
             <div>
                 <h2>Review Your Feedback</h2>
@@ -17,7 +28,7 @@ class Review extends Component {
                 <p>Support: {this.props.reduxState.support}</p>
                 <p>Comments: {this.props.reduxState.comments}</p>
 
-                <button disabled={true} onClick={this.clickSubmitFeedback}>Incomplete</button>
+                <button disabled={isSubmitDisabled} onClick={this.clickSubmitFeedback}>{submitText}</button>
             </div>
         );
     }

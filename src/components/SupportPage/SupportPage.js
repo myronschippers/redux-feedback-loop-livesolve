@@ -5,7 +5,17 @@ import Review from '../Review/Review';
 
 class SupportPage extends Component {
     clickNext = (event) => {
+        this.props.dispatch({
+            type: 'FEEDBACK_SUPPORT',
+            payload: this.state.support,
+        })
         this.props.history.push('/comments');
+    }
+
+    changeField = (event) => {
+        this.setState({
+            support: event.target.value,
+        });
     }
 
     render() {
@@ -14,7 +24,11 @@ class SupportPage extends Component {
                 <h2>How well are you being supported?</h2>
 
                 <div>
-                    CONTENT
+                    <input
+                        type="number"
+                        placeholder="Support"
+                        onChange={this.changeField}
+                    />
                     <button onClick={this.clickNext}>NEXT</button>
                 </div>
                 <div>
