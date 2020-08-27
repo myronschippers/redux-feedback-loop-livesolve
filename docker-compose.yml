@@ -28,6 +28,7 @@ services:
     volumes:
       - ./database/init.sql:/docker-entrypoint-initdb.d/10-init.sql
       - ./database/data.sql:/docker-entrypoint-initdb.d/20-data.sql
+  ## SERVER CONTAINER
   server:
     build:
       context: ./
